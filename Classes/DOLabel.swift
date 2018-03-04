@@ -9,8 +9,19 @@
 import AppKit
 import Foundation
 
+private class TextLayer: CALayer {
+    weak var textLabel: DOLabel?
+
+    override func draw(in ctx: CGContext) {
+        ctx.saveGState()
+        textLabel?.draw(context: ctx)
+        ctx.restoreGState()
+        super.draw(in: ctx)
+    }
+}
+
 open class DOLabel: NSView {
-    private static let cache = NSCache<NSString, NSValue>()
+    private static let sizeCache = NSCache<NSString, NSValue>()
     private var drawingRect: CGRect = .zero
 
     public init() {
@@ -36,28 +47,29 @@ open class DOLabel: NSView {
     private func commonInit() {
         wantsLayer = true
         canDrawConcurrently = true
+        textLayer?.textLabel = self
         layerContentsRedrawPolicy = .onSetNeedsDisplay
+        setContentHuggingPriority(.fittingSizeCompression, for: .horizontal)
+        setContentCompressionResistancePriority(.fittingSizeCompression, for: .horizontal)
     }
 
-    open override func draw(_: NSRect) {
-        let bounds = self.bounds
-        var drawRect: NSRect = .zero
-        drawRect.origin = drawingRect.origin
-        drawRect.size = bounds.size
+    fileprivate func draw(context: CGContext) {
+        context.setShouldAntialias(true)
+        context.setShouldSmoothFonts(true)
+        context.setAllowsFontSubpixelPositioning(true)
+        context.setShouldSubpixelQuantizeFonts(true)
 
-        drawRect.origin.x += margins.left
-        drawRect.origin.y += margins.top
+        let mutablePath = CGMutablePath()
+        mutablePath.move(to: CGPoint(x: drawingRect.minX + margins.left, y: drawingRect.minY + margins.bottom))
+        mutablePath.addLine(to: CGPoint(x: drawingRect.maxX - margins.right, y: drawingRect.minY + margins.bottom))
+        mutablePath.addLine(to: CGPoint(x: drawingRect.maxX - margins.right, y: drawingRect.maxY - margins.top))
+        mutablePath.addLine(to: CGPoint(x: drawingRect.minX + margins.left, y: drawingRect.maxY - margins.top))
+        mutablePath.closeSubpath()
 
-        drawRect.size.width -= (margins.right + margins.left)
-        drawRect.size.height -= (margins.bottom + margins.top)
-
-        backgroundColor.setFill()
-
-        let operation: NSCompositingOperation = .sourceOver
-        __NSRectFillUsingOperation(bounds, operation)
-
-        (text as NSString?)?.draw(with: drawRect, options: drawingOptions,
-                                  attributes: defaultAttributedDict, context: nil)
+        let attributedText = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+        let setter = CTFramesetterCreateWithAttributedString(attributedText as CFAttributedString)
+        let frame = CTFramesetterCreateFrame(setter, CFRangeMake(0, attributedText.length), mutablePath, nil)
+        CTFrameDraw(frame, context)
     }
 
     private func calculateRect() {
@@ -65,28 +77,25 @@ open class DOLabel: NSView {
             invalidateIntrinsicContentSize()
             needsDisplay = true
         }
-        let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)" +
-            "\(textAlignment.rawValue)-\(lineSpacing ?? 0)-\(numberOfLines)" +
-            "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" as NSString
+        let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
+            "\(textAlignment.rawValue)-\(lineSpacing ?? 0)-\(numberOfLines)-" +
+            "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" +
+            "\(margins)" as NSString
 
-        if let cachedSize = DOLabel.cache.object(forKey: cacheKey) {
+        if let cachedSize = DOLabel.sizeCache.object(forKey: cacheKey) {
             drawingRect = cachedSize.rectValue
             return
         }
 
-        let size = NSSize(width: preferredMaxLayoutWidth ?? bounds.width, height: 0.0)
-        drawingRect = (text as NSString?)?.boundingRect(with: size, options: drawingOptions,
-                                                        attributes: defaultAttributedDict) ?? .zero
+        let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - margins.left - margins.right)
+        let attributedText = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+        let setter = CTFramesetterCreateWithAttributedString(attributedText as CFAttributedString)
+        let size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedText.length), nil,
+                                                                CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
 
-        drawingRect.origin.x = ceil(-drawingRect.origin.x)
-        drawingRect.origin.y = ceil(-drawingRect.origin.y)
-        drawingRect.size.width = ceil(drawingRect.size.width) + (margins.left + margins.right)
-        drawingRect.size.height = ceil(drawingRect.size.height) + (margins.top + margins.bottom)
-        DOLabel.cache.setObject(NSValue(rect: drawingRect), forKey: cacheKey)
-    }
-
-    open override var baselineOffsetFromBottom: CGFloat {
-        return drawingRect.origin.y
+        drawingRect.size.width = ceil(size.width + margins.left + margins.right)
+        drawingRect.size.height = ceil(size.height + margins.top + margins.bottom)
+        DOLabel.sizeCache.setObject(NSValue(rect: drawingRect), forKey: cacheKey)
     }
 
     open override var intrinsicContentSize: NSSize {
@@ -114,9 +123,13 @@ open class DOLabel: NSView {
         ]
     }
 
+    open override func makeBackingLayer() -> CALayer {
+        return TextLayer()
+    }
+
     open override func layout() {
         super.layout()
-        display()
+        calculateRect()
     }
 
     open override func viewDidChangeBackingProperties() {
@@ -126,37 +139,45 @@ open class DOLabel: NSView {
         layer?.rasterizationScale = scale
     }
 
+    private var textLayer: TextLayer? {
+        return layer as? TextLayer
+    }
+
+    open override var isFlipped: Bool {
+        return false
+    }
+
     @IBInspectable open var text: String? {
         didSet {
             calculateRect()
         }
     }
 
-    @IBInspectable open var textColor = NSColor.black {
+    open var textColor = NSColor.black {
         didSet {
             needsDisplay = true
         }
     }
 
-    @IBInspectable open var backgroundColor = NSColor.clear {
+    open var backgroundColor = NSColor.clear {
         didSet {
             needsDisplay = true
         }
     }
 
-    @IBInspectable open var font = NSFont.systemFont(ofSize: 14) {
+    open var font = NSFont.systemFont(ofSize: 14) {
         didSet {
             calculateRect()
         }
     }
 
-    @IBInspectable open var textAlignment: NSTextAlignment = .left {
+    open var textAlignment: NSTextAlignment = .left {
         didSet {
             calculateRect()
         }
     }
 
-    @IBInspectable open var lineBreakMode: NSParagraphStyle.LineBreakMode = .byTruncatingTail {
+    open var lineBreakMode: NSParagraphStyle.LineBreakMode = .byWordWrapping {
         didSet {
             calculateRect()
         }
@@ -168,7 +189,7 @@ open class DOLabel: NSView {
         }
     }
 
-    @IBInspectable open var numberOfLines = 0 {
+    open var numberOfLines = 0 {
         didSet {
             calculateRect()
         }
@@ -180,7 +201,7 @@ open class DOLabel: NSView {
         }
     }
 
-    @IBInspectable open var margins: NSEdgeInsets = NSEdgeInsetsZero {
+    open var margins: NSEdgeInsets = NSEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
             calculateRect()
         }
