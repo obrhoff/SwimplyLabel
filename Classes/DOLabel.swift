@@ -21,8 +21,8 @@ private class TextLayer: CALayer {
 }
 
 open class DOLabel: NSView {
-    private static let sizeCache = NSCache<NSString, NSValue>()
     private var drawingRect: CGRect = .zero
+    private static let sizeCache = NSCache<NSString, NSValue>()
 
     public init() {
         super.init(frame: NSRect.zero)
@@ -66,9 +66,9 @@ open class DOLabel: NSView {
         mutablePath.addLine(to: CGPoint(x: drawingRect.minX + margins.left, y: drawingRect.maxY - margins.top))
         mutablePath.closeSubpath()
 
-        let attributedText = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
-        let setter = CTFramesetterCreateWithAttributedString(attributedText as CFAttributedString)
-        let frame = CTFramesetterCreateFrame(setter, CFRangeMake(0, attributedText.length), mutablePath, nil)
+        let attributedString = attributedText ?? NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+        let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
+        let frame = CTFramesetterCreateFrame(setter, CFRangeMake(0, attributedString.length), mutablePath, nil)
         CTFrameDraw(frame, context)
     }
 
@@ -76,6 +76,7 @@ open class DOLabel: NSView {
         defer {
             invalidateIntrinsicContentSize()
             needsDisplay = true
+            displayIfNeeded()
         }
         let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
             "\(textAlignment.rawValue)-\(lineSpacing ?? 0)-\(numberOfLines)-" +
@@ -88,9 +89,9 @@ open class DOLabel: NSView {
         }
 
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - margins.left - margins.right)
-        let attributedText = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
-        let setter = CTFramesetterCreateWithAttributedString(attributedText as CFAttributedString)
-        let size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedText.length), nil,
+        let attributedString = attributedText ?? NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+        let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
+        let size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
                                                                 CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
 
         drawingRect.size.width = ceil(size.width + margins.left + margins.right)
@@ -109,8 +110,8 @@ open class DOLabel: NSView {
     open var drawingParagraphStyle: NSParagraphStyle {
         let style = NSMutableParagraphStyle()
         style.alignment = textAlignment
+        style.lineBreakMode = lineBreakMode
         style.lineSpacing = lineSpacing ?? style.lineSpacing
-        style.lineBreakMode = numberOfLines > 0 ? lineBreakMode : style.lineBreakMode
         return style
     }
 
@@ -137,6 +138,7 @@ open class DOLabel: NSView {
         let scale = window?.backingScaleFactor ?? 1.0
         layer?.contentsScale = scale
         layer?.rasterizationScale = scale
+        needsDisplay = true
     }
 
     private var textLayer: TextLayer? {
@@ -145,6 +147,12 @@ open class DOLabel: NSView {
 
     open override var isFlipped: Bool {
         return false
+    }
+
+    open var attributedText: NSAttributedString? {
+        didSet {
+            calculateRect()
+        }
     }
 
     @IBInspectable open var text: String? {
@@ -177,7 +185,7 @@ open class DOLabel: NSView {
         }
     }
 
-    open var lineBreakMode: NSParagraphStyle.LineBreakMode = .byWordWrapping {
+    open var lineBreakMode: NSParagraphStyle.LineBreakMode = .byTruncatingTail {
         didSet {
             calculateRect()
         }
@@ -189,7 +197,7 @@ open class DOLabel: NSView {
         }
     }
 
-    open var numberOfLines = 0 {
+    open var numberOfLines = 1 {
         didSet {
             calculateRect()
         }
