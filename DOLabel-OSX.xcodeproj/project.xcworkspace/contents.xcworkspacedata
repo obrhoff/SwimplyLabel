@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DOLabel.xcodeproj">
+      location = "self:/Users/docterd/Development/DOLabel/DOLabel-OSX.xcodeproj">
    </FileRef>
 </Workspace>

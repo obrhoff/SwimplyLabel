@@ -7,22 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1511395204C211E00EF7552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1511394204C211E00EF7552 /* AppDelegate.swift */; };
-		E1511397204C211E00EF7552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1511396204C211E00EF7552 /* ViewController.swift */; };
-		E1511399204C211E00EF7552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1511398204C211E00EF7552 /* Assets.xcassets */; };
-		E151139C204C211E00EF7552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E151139A204C211E00EF7552 /* Main.storyboard */; };
-		E15113A5204C214300EF7552 /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15113A4204C214200EF7552 /* DOLabel.swift */; };
+		E16809C3204EC2BC007DB306 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809BC204EC2BC007DB306 /* ViewController.swift */; };
+		E16809C4204EC2BC007DB306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16809BD204EC2BC007DB306 /* Assets.xcassets */; };
+		E16809C5204EC2BC007DB306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E16809BE204EC2BC007DB306 /* Main.storyboard */; };
+		E16809C6204EC2BC007DB306 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809C1204EC2BC007DB306 /* AppDelegate.swift */; };
+		E16809C7204EC2BC007DB306 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E16809C2204EC2BC007DB306 /* Info.plist */; };
+		E16809D2204EC39D007DB306 /* DOLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809CF204EC39C007DB306 /* DOLayer.swift */; };
+		E16809D3204EC39D007DB306 /* DOLabel-OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809D0204EC39C007DB306 /* DOLabel-OSX.swift */; };
+		E16809D4204EC39D007DB306 /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809D1204EC39D007DB306 /* DOLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E1511391204C211E00EF7552 /* DOLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1511394204C211E00EF7552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1511396204C211E00EF7552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E1511398204C211E00EF7552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E151139B204C211E00EF7552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E151139D204C211E00EF7552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E151139E204C211E00EF7552 /* DOLabel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DOLabel.entitlements; sourceTree = "<group>"; };
-		E15113A4204C214200EF7552 /* DOLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOLabel.swift; path = Classes/DOLabel.swift; sourceTree = SOURCE_ROOT; };
+		E1511391204C211E00EF7552 /* DOLabel-OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DOLabel-OSX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E16809BC204EC2BC007DB306 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E16809BD204EC2BC007DB306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E16809BF204EC2BC007DB306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E16809C0204EC2BC007DB306 /* DOLabel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DOLabel.entitlements; sourceTree = "<group>"; };
+		E16809C1204EC2BC007DB306 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E16809C2204EC2BC007DB306 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16809CF204EC39C007DB306 /* DOLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOLayer.swift; path = Classes/DOLayer.swift; sourceTree = SOURCE_ROOT; };
+		E16809D0204EC39C007DB306 /* DOLabel-OSX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DOLabel-OSX.swift"; path = "Classes/DOLabel-OSX.swift"; sourceTree = SOURCE_ROOT; };
+		E16809D1204EC39D007DB306 /* DOLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOLabel.swift; path = Classes/DOLabel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +44,7 @@
 		E1511388204C211D00EF7552 = {
 			isa = PBXGroup;
 			children = (
-				E1511393204C211E00EF7552 /* DOLabel */,
+				E16809BB204EC2BC007DB306 /* DOLabel-OSX */,
 				E1511392204C211E00EF7552 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,31 +52,41 @@
 		E1511392204C211E00EF7552 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1511391204C211E00EF7552 /* DOLabel.app */,
+				E1511391204C211E00EF7552 /* DOLabel-OSX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E1511393204C211E00EF7552 /* DOLabel */ = {
+		E16809BB204EC2BC007DB306 /* DOLabel-OSX */ = {
 			isa = PBXGroup;
 			children = (
-				E15113A4204C214200EF7552 /* DOLabel.swift */,
-				E1511394204C211E00EF7552 /* AppDelegate.swift */,
-				E1511396204C211E00EF7552 /* ViewController.swift */,
-				E1511398204C211E00EF7552 /* Assets.xcassets */,
-				E151139A204C211E00EF7552 /* Main.storyboard */,
-				E151139D204C211E00EF7552 /* Info.plist */,
-				E151139E204C211E00EF7552 /* DOLabel.entitlements */,
+				E16809CE204EC2D7007DB306 /* DOLabel */,
+				E16809BC204EC2BC007DB306 /* ViewController.swift */,
+				E16809BD204EC2BC007DB306 /* Assets.xcassets */,
+				E16809BE204EC2BC007DB306 /* Main.storyboard */,
+				E16809C0204EC2BC007DB306 /* DOLabel.entitlements */,
+				E16809C1204EC2BC007DB306 /* AppDelegate.swift */,
+				E16809C2204EC2BC007DB306 /* Info.plist */,
 			);
-			path = DOLabel;
+			path = "DOLabel-OSX";
+			sourceTree = "<group>";
+		};
+		E16809CE204EC2D7007DB306 /* DOLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E16809D0204EC39C007DB306 /* DOLabel-OSX.swift */,
+				E16809D1204EC39D007DB306 /* DOLabel.swift */,
+				E16809CF204EC39C007DB306 /* DOLayer.swift */,
+			);
+			name = DOLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1511390204C211E00EF7552 /* DOLabel */ = {
+		E1511390204C211E00EF7552 /* DOLabel-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E15113A1204C211E00EF7552 /* Build configuration list for PBXNativeTarget "DOLabel" */;
+			buildConfigurationList = E15113A1204C211E00EF7552 /* Build configuration list for PBXNativeTarget "DOLabel-OSX" */;
 			buildPhases = (
 				E151138D204C211E00EF7552 /* Sources */,
 				E151138E204C211E00EF7552 /* Frameworks */,
@@ -81,9 +96,9 @@
 			);
 			dependencies = (
 			);
-			name = DOLabel;
+			name = "DOLabel-OSX";
 			productName = DOLabel;
-			productReference = E1511391204C211E00EF7552 /* DOLabel.app */;
+			productReference = E1511391204C211E00EF7552 /* DOLabel-OSX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E151138C204C211D00EF7552 /* Build configuration list for PBXProject "DOLabel" */;
+			buildConfigurationList = E151138C204C211D00EF7552 /* Build configuration list for PBXProject "DOLabel-OSX" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1511390204C211E00EF7552 /* DOLabel */,
+				E1511390204C211E00EF7552 /* DOLabel-OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +140,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1511399204C211E00EF7552 /* Assets.xcassets in Resources */,
-				E151139C204C211E00EF7552 /* Main.storyboard in Resources */,
+				E16809C4204EC2BC007DB306 /* Assets.xcassets in Resources */,
+				E16809C7204EC2BC007DB306 /* Info.plist in Resources */,
+				E16809C5204EC2BC007DB306 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,19 +153,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1511397204C211E00EF7552 /* ViewController.swift in Sources */,
-				E1511395204C211E00EF7552 /* AppDelegate.swift in Sources */,
-				E15113A5204C214300EF7552 /* DOLabel.swift in Sources */,
+				E16809D2204EC39D007DB306 /* DOLayer.swift in Sources */,
+				E16809C3204EC2BC007DB306 /* ViewController.swift in Sources */,
+				E16809D4204EC39D007DB306 /* DOLabel.swift in Sources */,
+				E16809D3204EC39D007DB306 /* DOLabel-OSX.swift in Sources */,
+				E16809C6204EC2BC007DB306 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E151139A204C211E00EF7552 /* Main.storyboard */ = {
+		E16809BE204EC2BC007DB306 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E151139B204C211E00EF7552 /* Base */,
+				E16809BF204EC2BC007DB306 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -267,10 +285,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DOLabel/DOLabel.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "DOLabel-OSX/DOLabel.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = DOLabel/Info.plist;
+				INFOPLIST_FILE = "DOLabel-OSX/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.DOLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,10 +300,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DOLabel/DOLabel.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "DOLabel-OSX/DOLabel.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = DOLabel/Info.plist;
+				INFOPLIST_FILE = "DOLabel-OSX/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.DOLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E151138C204C211D00EF7552 /* Build configuration list for PBXProject "DOLabel" */ = {
+		E151138C204C211D00EF7552 /* Build configuration list for PBXProject "DOLabel-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E151139F204C211E00EF7552 /* Debug */,
@@ -305,7 +323,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E15113A1204C211E00EF7552 /* Build configuration list for PBXNativeTarget "DOLabel" */ = {
+		E15113A1204C211E00EF7552 /* Build configuration list for PBXNativeTarget "DOLabel-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E15113A2204C211E00EF7552 /* Debug */,
