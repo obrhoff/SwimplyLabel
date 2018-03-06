@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1177BC4204F13280031D20F /* DOLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809CF204EC39C007DB306 /* DOLayer.swift */; };
 		E16809C3204EC2BC007DB306 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809BC204EC2BC007DB306 /* ViewController.swift */; };
 		E16809C4204EC2BC007DB306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16809BD204EC2BC007DB306 /* Assets.xcassets */; };
 		E16809C5204EC2BC007DB306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E16809BE204EC2BC007DB306 /* Main.storyboard */; };
 		E16809C6204EC2BC007DB306 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809C1204EC2BC007DB306 /* AppDelegate.swift */; };
 		E16809C7204EC2BC007DB306 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E16809C2204EC2BC007DB306 /* Info.plist */; };
-		E16809D2204EC39D007DB306 /* DOLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809CF204EC39C007DB306 /* DOLayer.swift */; };
 		E16809D3204EC39D007DB306 /* DOLabel-OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809D0204EC39C007DB306 /* DOLabel-OSX.swift */; };
 		E16809D4204EC39D007DB306 /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16809D1204EC39D007DB306 /* DOLabel.swift */; };
 /* End PBXBuildFile section */
@@ -153,11 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16809D2204EC39D007DB306 /* DOLayer.swift in Sources */,
 				E16809C3204EC2BC007DB306 /* ViewController.swift in Sources */,
 				E16809D4204EC39D007DB306 /* DOLabel.swift in Sources */,
 				E16809D3204EC39D007DB306 /* DOLabel-OSX.swift in Sources */,
 				E16809C6204EC2BC007DB306 /* AppDelegate.swift in Sources */,
+				E1177BC4204F13280031D20F /* DOLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

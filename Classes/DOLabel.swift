@@ -33,7 +33,7 @@ import Foundation
 
 @IBDesignable open class DOLabel: View {
     private var drawingRect: CGRect = .zero
-  
+
     public init() {
         super.init(frame: Rect.zero)
         commonInit()
@@ -67,16 +67,18 @@ import Foundation
         setContentHuggingPriority(.defaultLow, for: .horizontal)
         setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         labelLayer?.drawsAsynchronously = true
-        labelLayer?.textLabel = self
+        labelLayer?.delegate = self
     }
 
     internal func draw(context: CGContext) {
         context.textMatrix = .identity
+        context.setAllowsAntialiasing(true)
+        context.setAllowsFontSmoothing(true)
+        context.setAllowsFontSubpixelQuantization(true)
+        context.setAllowsFontSubpixelPositioning(true)
         context.setShouldAntialias(true)
         context.setShouldSmoothFonts(true)
-        context.setAllowsFontSubpixelPositioning(true)
-        context.setShouldSubpixelQuantizeFonts(true)
-
+        
         #if os(iOS)
             context.translateBy(x: 0, y: bounds.height)
             context.scaleBy(x: 1.0, y: -1.0)
@@ -96,19 +98,21 @@ import Foundation
     }
 
     internal func calculateRect() {
-        defer {
-            invalidateIntrinsicContentSize()
-            updateDisplay()
-        }
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
         let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
-
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
         let size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
                                                                 CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
 
         drawingRect.size.width = ceil(size.width + insets.left + insets.right)
         drawingRect.size.height = ceil(size.height + insets.top + insets.bottom)
+
+        invalidateIntrinsicContentSize()
+        setNeedsDisplayLayer()
+    }
+
+    internal func setNeedsDisplayLayer() {
+        labelLayer?.setNeedsDisplay()
     }
 
     private var defaultAttributedDict: [NSAttributedStringKey: Any] {
@@ -138,7 +142,7 @@ import Foundation
         return style
     }
 
-    private var labelLayer: DOLayer? {
+    internal var labelLayer: DOLayer? {
         return layer as? DOLayer
     }
 
@@ -150,19 +154,19 @@ import Foundation
 
     @IBInspectable open var textColor = Color.black {
         didSet {
-            updateDisplay()
+            setNeedsDisplayLayer()
         }
     }
 
     @IBInspectable open var textBackground = Color.clear {
         didSet {
-            updateDisplay()
+            setNeedsDisplayLayer()
         }
     }
 
     open var textShadow: NSShadow? {
         didSet {
-            updateDisplay()
+            setNeedsDisplayLayer()
         }
     }
 

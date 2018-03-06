@@ -9,7 +9,11 @@
 import Foundation
 import QuartzCore
 
-extension DOLabel {
+extension DOLabel: CALayerDelegate {
+    public func draw(_: CALayer, in ctx: CGContext) {
+        draw(context: ctx)
+    }
+
     open override func makeBackingLayer() -> CALayer {
         return DOLayer()
     }
@@ -19,14 +23,11 @@ extension DOLabel {
         let scale = window?.backingScaleFactor ?? 1.0
         layer?.contentsScale = scale
         layer?.rasterizationScale = scale
-        updateDisplay()
-    }
-
-    internal func updateDisplay() {
-        needsDisplay = true
+        calculateRect()
     }
 
     open override func layout() {
+        super.layout()
         calculateRect()
     }
 

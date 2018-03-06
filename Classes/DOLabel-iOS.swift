@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import QuartzCore
 
 extension DOLabel {
+    open override func draw(_: CALayer, in ctx: CGContext) {
+        draw(context: ctx)
+    }
+
     open override static var layerClass: AnyClass {
         return DOLayer.self
     }

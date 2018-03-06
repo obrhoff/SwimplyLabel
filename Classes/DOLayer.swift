@@ -10,11 +10,9 @@ import Foundation
 import QuartzCore
 
 internal class DOLayer: CALayer {
-    weak var textLabel: DOLabel?
     override func draw(in ctx: CGContext) {
         ctx.saveGState()
-        textLabel?.draw(context: ctx)
+        delegate?.draw?(self, in: ctx)
         ctx.restoreGState()
-        super.draw(in: ctx)
     }
 }
