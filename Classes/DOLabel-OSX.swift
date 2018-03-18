@@ -23,7 +23,7 @@ extension DOLabel: CALayerDelegate {
         let scale = window?.backingScaleFactor ?? 1.0
         layer?.contentsScale = scale
         layer?.rasterizationScale = scale
-        calculateRect()
+        setNeedsDisplayLayer()
     }
 
     open override func layout() {

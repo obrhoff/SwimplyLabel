@@ -22,9 +22,4 @@ extension DOLabel {
         super.layoutSubviews()
         calculateRect()
     }
-
-    internal func updateDisplay() {
-        layer.setNeedsDisplay()
-        layer.display()
-    }
 }

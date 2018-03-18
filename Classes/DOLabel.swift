@@ -78,7 +78,7 @@ import Foundation
         context.setAllowsFontSubpixelPositioning(true)
         context.setShouldAntialias(true)
         context.setShouldSmoothFonts(true)
-        
+
         #if os(iOS)
             context.translateBy(x: 0, y: bounds.height)
             context.scaleBy(x: 1.0, y: -1.0)
