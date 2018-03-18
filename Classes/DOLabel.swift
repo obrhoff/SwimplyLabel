@@ -84,11 +84,24 @@ import Foundation
             context.scaleBy(x: 1.0, y: -1.0)
         #endif
 
+        let leftX = drawingRect.minX + insets.left
+        let rightX = drawingRect.maxX - insets.right
+        let topY = drawingRect.maxY - insets.top
+        let bottomY = drawingRect.minY + insets.bottom
+
+        switch textAlignment {
+        case .right:
+            context.translateBy(x: bounds.maxX - insets.right - rightX, y: 0)
+        case .center:
+            context.translateBy(x: bounds.midX - drawingRect.width / 2, y: 0)
+        default: break
+        }
+
         let mutablePath = CGMutablePath()
-        mutablePath.move(to: CGPoint(x: drawingRect.minX + insets.left, y: drawingRect.minY + insets.bottom))
-        mutablePath.addLine(to: CGPoint(x: drawingRect.maxX - insets.right, y: drawingRect.minY + insets.bottom))
-        mutablePath.addLine(to: CGPoint(x: drawingRect.maxX - insets.right, y: drawingRect.maxY - insets.top))
-        mutablePath.addLine(to: CGPoint(x: drawingRect.minX + insets.left, y: drawingRect.maxY - insets.top))
+        mutablePath.move(to: CGPoint(x: leftX, y: bottomY))
+        mutablePath.addLine(to: CGPoint(x: rightX, y: bottomY))
+        mutablePath.addLine(to: CGPoint(x: rightX, y: topY))
+        mutablePath.addLine(to: CGPoint(x: leftX, y: topY))
         mutablePath.closeSubpath()
 
         let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
