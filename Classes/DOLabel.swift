@@ -32,6 +32,7 @@ import Foundation
 #endif
 
 @IBDesignable open class DOLabel: View {
+    private static let sizeCache = NSCache<NSString, NSValue>()
     private var drawingRect: CGRect = .zero
 
     public init() {
@@ -78,6 +79,8 @@ import Foundation
         context.setAllowsFontSubpixelPositioning(true)
         context.setShouldAntialias(true)
         context.setShouldSmoothFonts(true)
+        context.setAllowsFontSubpixelPositioning(true)
+        context.setAllowsFontSubpixelQuantization(true)
 
         #if os(iOS)
             context.translateBy(x: 0, y: bounds.height)
@@ -111,6 +114,24 @@ import Foundation
     }
 
     internal func calculateRect() {
+        defer {
+            invalidateIntrinsicContentSize()
+            setNeedsDisplayLayer()
+        }
+        let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
+            "\(textAlignment.rawValue)-\(lineSpacing)-\(numberOfLines)-" +
+            "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" +
+            "\(insets)" as NSString
+
+        if let cachedSize = DOLabel.sizeCache.object(forKey: cacheKey) {
+            #if os(iOS)
+                drawingRect = cachedSize.cgRectValue
+            #elseif os(OSX)
+                drawingRect = cachedSize.rectValue
+            #endif
+            return
+        }
+
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
         let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
@@ -119,9 +140,11 @@ import Foundation
 
         drawingRect.size.width = ceil(size.width + insets.left + insets.right)
         drawingRect.size.height = ceil(size.height + insets.top + insets.bottom)
-
-        invalidateIntrinsicContentSize()
-        setNeedsDisplayLayer()
+        #if os(iOS)
+            DOLabel.sizeCache.setObject(NSValue(cgRect: drawingRect), forKey: cacheKey)
+        #elseif os(OSX)
+            DOLabel.sizeCache.setObject(NSValue(rect: drawingRect), forKey: cacheKey)
+        #endif
     }
 
     internal func setNeedsDisplayLayer() {
@@ -159,20 +182,37 @@ import Foundation
         return layer as? DOLayer
     }
 
+    open override var frame: Rect {
+        didSet {
+            if oldValue == frame { return }
+            calculateRect()
+        }
+    }
+
+    open override var bounds: Rect {
+        didSet {
+            if oldValue == bounds { return }
+            calculateRect()
+        }
+    }
+
     @IBInspectable open var text: String? {
         didSet {
+            if oldValue == text { return }
             calculateRect()
         }
     }
 
     @IBInspectable open var textColor = Color.black {
         didSet {
+            if oldValue == textColor { return }
             setNeedsDisplayLayer()
         }
     }
 
     @IBInspectable open var textBackground = Color.clear {
         didSet {
+            if oldValue == textBackground { return }
             setNeedsDisplayLayer()
         }
     }
@@ -185,42 +225,49 @@ import Foundation
 
     @IBInspectable open var font = Font.systemFont(ofSize: 14) {
         didSet {
+            if oldValue == font { return }
             calculateRect()
         }
     }
 
     open var textAlignment: NSTextAlignment = .left {
         didSet {
+            if oldValue == textAlignment { return }
             calculateRect()
         }
     }
 
     @IBInspectable open var numberOfLines = 1 {
         didSet {
+            if oldValue == numberOfLines { return }
             calculateRect()
         }
     }
 
     open var preferredMaxLayoutWidth: CGFloat? {
         didSet {
+            if oldValue == preferredMaxLayoutWidth { return }
             calculateRect()
         }
     }
 
     @IBInspectable open var lineSpacing: CGFloat = 0.0 {
         didSet {
+            if oldValue == lineSpacing { return }
             calculateRect()
         }
     }
 
     @IBInspectable open var kerning: CGFloat = 0.0 {
         didSet {
+            if oldValue == kerning { return }
             calculateRect()
         }
     }
 
     open var lineBreakMode: LineBreakMode = .byTruncatingTail {
         didSet {
+            if oldValue == lineBreakMode { return }
             calculateRect()
         }
     }

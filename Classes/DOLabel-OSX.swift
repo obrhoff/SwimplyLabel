@@ -26,11 +26,6 @@ extension DOLabel: CALayerDelegate {
         setNeedsDisplayLayer()
     }
 
-    open override func layout() {
-        super.layout()
-        calculateRect()
-    }
-
     open override var isFlipped: Bool {
         return false
     }

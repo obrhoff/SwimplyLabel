@@ -17,9 +17,4 @@ extension DOLabel {
     open override static var layerClass: AnyClass {
         return DOLayer.self
     }
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        calculateRect()
-    }
 }
