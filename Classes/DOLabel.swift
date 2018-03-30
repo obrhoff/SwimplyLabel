@@ -32,8 +32,11 @@ import Foundation
 #endif
 
 @IBDesignable open class DOLabel: View {
-    private static let sizeCache = NSCache<NSString, NSValue>()
-    private var drawingRect: CGRect = .zero
+    private static var sizeCache = [String: Rect]()
+    public var shouldAntialias = true
+    public var shouldSmoothFonts = false
+    public var shouldSubpixelPositionFonts = false
+    public var shouldSubpixelQuantizeFonts = false
 
     public init() {
         super.init(frame: Rect.zero)
@@ -77,10 +80,10 @@ import Foundation
         context.setAllowsFontSmoothing(true)
         context.setAllowsFontSubpixelQuantization(true)
         context.setAllowsFontSubpixelPositioning(true)
-        context.setShouldAntialias(true)
-        context.setShouldSmoothFonts(true)
-        context.setAllowsFontSubpixelPositioning(true)
-        context.setAllowsFontSubpixelQuantization(true)
+        context.setShouldAntialias(shouldAntialias)
+        context.setShouldSmoothFonts(shouldSmoothFonts)
+        context.setAllowsFontSubpixelPositioning(shouldSubpixelPositionFonts)
+        context.setAllowsFontSubpixelQuantization(shouldSubpixelQuantizeFonts)
 
         #if os(iOS)
             context.translateBy(x: 0, y: bounds.height)
@@ -115,20 +118,15 @@ import Foundation
 
     internal func calculateRect() {
         defer {
-            invalidateIntrinsicContentSize()
             setNeedsDisplayLayer()
         }
         let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
             "\(textAlignment.rawValue)-\(lineSpacing)-\(numberOfLines)-" +
             "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" +
-            "\(insets)" as NSString
+            "\(insets)"
 
-        if let cachedSize = DOLabel.sizeCache.object(forKey: cacheKey) {
-            #if os(iOS)
-                drawingRect = cachedSize.cgRectValue
-            #elseif os(OSX)
-                drawingRect = cachedSize.rectValue
-            #endif
+        if let cachedSize = DOLabel.sizeCache[cacheKey] {
+            drawingRect = cachedSize
             return
         }
 
@@ -140,11 +138,7 @@ import Foundation
 
         drawingRect.size.width = ceil(size.width + insets.left + insets.right)
         drawingRect.size.height = ceil(size.height + insets.top + insets.bottom)
-        #if os(iOS)
-            DOLabel.sizeCache.setObject(NSValue(cgRect: drawingRect), forKey: cacheKey)
-        #elseif os(OSX)
-            DOLabel.sizeCache.setObject(NSValue(rect: drawingRect), forKey: cacheKey)
-        #endif
+        DOLabel.sizeCache[cacheKey] = drawingRect
     }
 
     internal func setNeedsDisplayLayer() {
@@ -189,10 +183,10 @@ import Foundation
         }
     }
 
-    open override var bounds: Rect {
+    private var drawingRect: CGRect = .zero {
         didSet {
-            if oldValue == bounds { return }
-            calculateRect()
+            if oldValue.equalTo(drawingRect) { return }
+            invalidateIntrinsicContentSize()
         }
     }
 
