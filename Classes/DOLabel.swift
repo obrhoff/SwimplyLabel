@@ -35,8 +35,8 @@ import Foundation
     private static var sizeCache = [String: Rect]()
     public var shouldAntialias = true
     public var shouldSmoothFonts = false
-    public var shouldSubpixelPositionFonts = false
-    public var shouldSubpixelQuantizeFonts = false
+    public var shouldSubpixelPositionFonts = true
+    public var shouldSubpixelQuantizeFonts = true
 
     public init() {
         super.init(frame: Rect.zero)
@@ -120,10 +120,11 @@ import Foundation
         defer {
             setNeedsDisplayLayer()
         }
-        let cacheKey = "\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
+
+        let cacheKey = ("\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
             "\(textAlignment.rawValue)-\(lineSpacing)-\(numberOfLines)-" +
             "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" +
-            "\(insets)"
+            "\(insets)")
 
         if let cachedSize = DOLabel.sizeCache[cacheKey] {
             drawingRect = cachedSize
@@ -178,7 +179,14 @@ import Foundation
 
     open override var frame: Rect {
         didSet {
-            if oldValue == frame { return }
+            if oldValue.size.equalTo(frame.size) { return }
+            calculateRect()
+        }
+    }
+
+    open override var bounds: Rect {
+        didSet {
+            if oldValue.size.equalTo(bounds.size) { return }
             calculateRect()
         }
     }
