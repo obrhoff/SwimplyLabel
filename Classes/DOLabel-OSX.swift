@@ -21,16 +21,17 @@ extension DOLabel: CALayerDelegate {
     open override func viewDidChangeBackingProperties() {
         super.viewDidChangeBackingProperties()
         let scale = window?.backingScaleFactor ?? 1.0
+        let isRetina = scale >= 2.0
+        shouldSmoothFonts = true
+        shouldAntialias = true
+        shouldSubpixelPositionFonts = !isRetina
+        shouldSubpixelQuantizeFonts = !isRetina
         layer?.contentsScale = scale
         layer?.rasterizationScale = scale
         setNeedsDisplayLayer()
     }
 
     open override var isFlipped: Bool {
-        return false
-    }
-
-    open override var wantsDefaultClipping: Bool {
         return false
     }
 }

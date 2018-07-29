@@ -33,10 +33,10 @@ import Foundation
 
 @IBDesignable open class DOLabel: View {
     private static var sizeCache = [String: Rect]()
-    public var shouldAntialias = true
-    public var shouldSmoothFonts = false
-    public var shouldSubpixelPositionFonts = true
-    public var shouldSubpixelQuantizeFonts = true
+    internal var shouldAntialias = true
+    internal var shouldSmoothFonts = true
+    internal var shouldSubpixelPositionFonts = false
+    internal var shouldSubpixelQuantizeFonts = false
 
     public init() {
         super.init(frame: Rect.zero)
@@ -60,7 +60,9 @@ import Foundation
 
     private func commonInit() {
         #if os(iOS)
-            clipsToBounds = false
+            let isRetina = UIScreen.main.scale >= 2.0
+            shouldSubpixelPositionFonts = !isRetina
+            shouldSubpixelQuantizeFonts = !isRetina
             layer.contentsScale = UIScreen.main.scale
             layer.rasterizationScale = UIScreen.main.scale
         #elseif os(OSX)
@@ -78,12 +80,13 @@ import Foundation
         context.textMatrix = .identity
         context.setAllowsAntialiasing(true)
         context.setAllowsFontSmoothing(true)
-        context.setAllowsFontSubpixelQuantization(true)
         context.setAllowsFontSubpixelPositioning(true)
+        context.setAllowsFontSubpixelQuantization(true)
+
         context.setShouldAntialias(shouldAntialias)
         context.setShouldSmoothFonts(shouldSmoothFonts)
-        context.setAllowsFontSubpixelPositioning(shouldSubpixelPositionFonts)
-        context.setAllowsFontSubpixelQuantization(shouldSubpixelQuantizeFonts)
+        context.setShouldSubpixelPositionFonts(shouldSubpixelPositionFonts)
+        context.setShouldSubpixelQuantizeFonts(shouldSubpixelQuantizeFonts)
 
         #if os(iOS)
             context.translateBy(x: 0, y: bounds.height)
