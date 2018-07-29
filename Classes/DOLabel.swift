@@ -134,8 +134,15 @@ import Foundation
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
         let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
-        let size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
+        var size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
                                                                 CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
+        if numberOfLines > 0 {
+            let path = CGPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height), transform: nil)
+            let ctFrame = CTFramesetterCreateFrame(setter, CFRangeMake(0, 0), path, nil)
+            let currentLines = CFArrayGetCount(CTFrameGetLines(ctFrame)) as Int
+            let calculatedHeight = (size.height / CGFloat(currentLines)) * CGFloat(numberOfLines)
+            size.height = calculatedHeight <= size.height ? calculatedHeight : size.height
+        }
 
         drawingRect.size.width = ceil(size.width + insets.left + insets.right)
         drawingRect.size.height = ceil(size.height + insets.top + insets.bottom)
