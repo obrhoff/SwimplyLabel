@@ -32,7 +32,6 @@ import Foundation
 #endif
 
 @IBDesignable open class DOLabel: View {
-    private static var sizeCache = [String: Rect]()
     internal var shouldAntialias = true
     internal var shouldSmoothFonts = true
     internal var shouldSubpixelPositionFonts = false
@@ -70,13 +69,18 @@ import Foundation
             canDrawConcurrently = true
             layerContentsRedrawPolicy = .onSetNeedsDisplay
         #endif
+
         setContentHuggingPriority(.defaultLow, for: .horizontal)
         setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
         labelLayer?.drawsAsynchronously = true
+        labelLayer?.needsDisplayOnBoundsChange = true
         labelLayer?.delegate = self
     }
 
     internal func draw(context: CGContext) {
+        calculateRect()
+
         context.textMatrix = .identity
         context.setAllowsAntialiasing(true)
         context.setAllowsFontSmoothing(true)
@@ -93,67 +97,35 @@ import Foundation
             context.scaleBy(x: 1.0, y: -1.0)
         #endif
 
-        let leftX = drawingRect.minX + insets.left
-        let rightX = drawingRect.maxX - insets.right
-        let topY = drawingRect.maxY - insets.top
-        let bottomY = drawingRect.minY + insets.bottom
+        let height = min(drawingRect.height, bounds.height) - insets.bottom - insets.top
+        let width = drawingRect.width - insets.left - insets.right
 
-        switch textAlignment {
-        case .right:
-            context.translateBy(x: bounds.maxX - insets.right - rightX, y: 0)
-        case .center:
-            context.translateBy(x: bounds.midX - drawingRect.width / 2, y: 0)
-        default: break
-        }
-
-        let mutablePath = CGMutablePath()
-        mutablePath.move(to: CGPoint(x: leftX, y: bottomY))
-        mutablePath.addLine(to: CGPoint(x: rightX, y: bottomY))
-        mutablePath.addLine(to: CGPoint(x: rightX, y: topY))
-        mutablePath.addLine(to: CGPoint(x: leftX, y: topY))
-        mutablePath.closeSubpath()
+        let rect = CGRect(x: insets.left, y: insets.bottom, width: width, height: height)
+        let drawingPath = CGPath(rect: rect, transform: nil)
 
         let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
-        let frame = CTFramesetterCreateFrame(setter, CFRangeMake(0, attributedString.length), mutablePath, nil)
+        let frame = CTFramesetterCreateFrame(setter, CFRangeMake(0, attributedString.length), drawingPath, nil)
         CTFrameDraw(frame, context)
     }
 
     internal func calculateRect() {
-        defer {
-            setNeedsDisplayLayer()
-        }
-
-        let cacheKey = ("\(text ?? "")-\(font.fontName)-\(font.pointSize)-" +
-            "\(textAlignment.rawValue)-\(lineSpacing)-\(numberOfLines)-" +
-            "\(lineBreakMode)-\(preferredMaxLayoutWidth ?? bounds.width)-" +
-            "\(insets)")
-
-        if let cachedSize = DOLabel.sizeCache[cacheKey] {
-            drawingRect = cachedSize
-            return
-        }
-
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
-        let attributedString = NSAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+        let attributedString = NSMutableAttributedString(string: text ?? "", attributes: defaultAttributedDict)
+
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
         var size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
                                                                 CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
-        if numberOfLines > 0 {
+        if numberOfLines > 1 {
             let path = CGPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height), transform: nil)
             let ctFrame = CTFramesetterCreateFrame(setter, CFRangeMake(0, 0), path, nil)
             let currentLines = CFArrayGetCount(CTFrameGetLines(ctFrame)) as Int
             let calculatedHeight = (size.height / CGFloat(currentLines)) * CGFloat(numberOfLines)
-            size.height = calculatedHeight <= size.height ? calculatedHeight : size.height
+            size.height = min(size.height, calculatedHeight)
         }
 
-        drawingRect.size.width = ceil(size.width + insets.left + insets.right)
-        drawingRect.size.height = ceil(size.height + insets.top + insets.bottom)
-        DOLabel.sizeCache[cacheKey] = drawingRect
-    }
-
-    internal func setNeedsDisplayLayer() {
-        labelLayer?.setNeedsDisplay()
+        drawingRect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
+                             height: ceil(size.height + insets.top + insets.bottom))
     }
 
     private var defaultAttributedDict: [NSAttributedStringKey: Any] {
@@ -175,7 +147,7 @@ import Foundation
         return drawingRect.size
     }
 
-    open var drawingParagraphStyle: NSParagraphStyle {
+    internal var drawingParagraphStyle: NSMutableParagraphStyle {
         let style = NSMutableParagraphStyle()
         style.alignment = textAlignment
         style.lineBreakMode = lineBreakMode
@@ -187,23 +159,9 @@ import Foundation
         return layer as? DOLayer
     }
 
-    open override var frame: Rect {
-        didSet {
-            if oldValue.size.equalTo(frame.size) { return }
-            calculateRect()
-        }
-    }
-
-    open override var bounds: Rect {
-        didSet {
-            if oldValue.size.equalTo(bounds.size) { return }
-            calculateRect()
-        }
-    }
-
     private var drawingRect: CGRect = .zero {
         didSet {
-            if oldValue.equalTo(drawingRect) { return }
+            if drawingRect == oldValue { return }
             invalidateIntrinsicContentSize()
         }
     }
@@ -218,20 +176,20 @@ import Foundation
     @IBInspectable open var textColor = Color.black {
         didSet {
             if oldValue == textColor { return }
-            setNeedsDisplayLayer()
+            labelLayer?.display()
         }
     }
 
     @IBInspectable open var textBackground = Color.clear {
         didSet {
             if oldValue == textBackground { return }
-            setNeedsDisplayLayer()
+            self.labelLayer?.display()
         }
     }
 
     open var textShadow: NSShadow? {
         didSet {
-            setNeedsDisplayLayer()
+            labelLayer?.display()
         }
     }
 
