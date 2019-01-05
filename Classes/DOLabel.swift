@@ -42,8 +42,8 @@ import Foundation
         commonInit()
     }
 
-    public override init(frame _: Rect) {
-        super.init(frame: Rect.zero)
+    public override init(frame: Rect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -79,7 +79,7 @@ import Foundation
     }
 
     internal func draw(context: CGContext) {
-        calculateRect()
+        calculateContentSize()
 
         context.textMatrix = .identity
         context.setAllowsAntialiasing(true)
@@ -109,7 +109,7 @@ import Foundation
         CTFrameDraw(frame, context)
     }
 
-    internal func calculateRect() {
+    private func calculateContentSize() {
         let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
         let attributedString = NSMutableAttributedString(string: text ?? "", attributes: defaultAttributedDict)
 
@@ -126,6 +126,11 @@ import Foundation
 
         drawingRect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
                              height: ceil(size.height + insets.top + insets.bottom))
+    }
+
+    private func needsContentDisplay() {
+        calculateContentSize()
+        labelLayer?.setNeedsDisplay()
     }
 
     private var defaultAttributedDict: [NSAttributedStringKey: Any] {
@@ -147,7 +152,7 @@ import Foundation
         return drawingRect.size
     }
 
-    internal var drawingParagraphStyle: NSMutableParagraphStyle {
+    private var drawingParagraphStyle: NSMutableParagraphStyle {
         let style = NSMutableParagraphStyle()
         style.alignment = textAlignment
         style.lineBreakMode = lineBreakMode
@@ -155,13 +160,13 @@ import Foundation
         return style
     }
 
-    internal var labelLayer: DOLayer? {
+    private var labelLayer: DOLayer? {
         return layer as? DOLayer
     }
 
     private var drawingRect: CGRect = .zero {
         didSet {
-            if drawingRect == oldValue { return }
+            if oldValue == drawingRect { return }
             invalidateIntrinsicContentSize()
         }
     }
@@ -169,82 +174,82 @@ import Foundation
     @IBInspectable open var text: String? {
         didSet {
             if oldValue == text { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var textColor = Color.black {
         didSet {
             if oldValue == textColor { return }
-            labelLayer?.display()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var textBackground = Color.clear {
         didSet {
             if oldValue == textBackground { return }
-            self.labelLayer?.display()
+            self.needsContentDisplay()
         }
     }
 
     open var textShadow: NSShadow? {
         didSet {
-            labelLayer?.display()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var font = Font.systemFont(ofSize: 14) {
         didSet {
             if oldValue == font { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     open var textAlignment: NSTextAlignment = .left {
         didSet {
             if oldValue == textAlignment { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var numberOfLines = 1 {
         didSet {
             if oldValue == numberOfLines { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     open var preferredMaxLayoutWidth: CGFloat? {
         didSet {
             if oldValue == preferredMaxLayoutWidth { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var lineSpacing: CGFloat = 0.0 {
         didSet {
             if oldValue == lineSpacing { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     @IBInspectable open var kerning: CGFloat = 0.0 {
         didSet {
             if oldValue == kerning { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     open var lineBreakMode: LineBreakMode = .byTruncatingTail {
         didSet {
             if oldValue == lineBreakMode { return }
-            calculateRect()
+            needsContentDisplay()
         }
     }
 
     open var insets: EdgeInsets = EdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
-            calculateRect()
+            needsContentDisplay()
         }
     }
 }

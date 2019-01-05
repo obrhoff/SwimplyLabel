@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "DOLabel"
-  s.version = "1.1"
+  s.version = "1.2"
   s.summary = "UILabel replacement for macOS"
   s.homepage = "https://github.com/docterd/dolabel"
   s.license = { :type => "MIT" }
