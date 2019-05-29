@@ -92,10 +92,8 @@ import Foundation
         context.setShouldSubpixelPositionFonts(shouldSubpixelPositionFonts)
         context.setShouldSubpixelQuantizeFonts(shouldSubpixelQuantizeFonts)
 
-        #if os(iOS)
-            context.translateBy(x: 0, y: bounds.height)
-            context.scaleBy(x: 1.0, y: -1.0)
-        #endif
+        context.translateBy(x: 0, y: bounds.height)
+        context.scaleBy(x: 1.0, y: -1.0)
 
         let height = min(drawingRect.height, bounds.height) - insets.bottom - insets.top
         let width = drawingRect.width - insets.left - insets.right

@@ -28,10 +28,10 @@ extension DOLabel: CALayerDelegate {
         shouldSubpixelQuantizeFonts = !isRetina
         layer?.contentsScale = scale
         layer?.rasterizationScale = scale
-        display()
+        layer?.setNeedsDisplay()
     }
 
     open override var isFlipped: Bool {
-        return false
+        return true
     }
 }
