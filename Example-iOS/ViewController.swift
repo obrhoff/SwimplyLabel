@@ -1,11 +1,4 @@
-//
-//  ViewController.swift
-//  DOLabel-iOS
-//
-//  Created by Dennis Oberhoff on 06.03.18.
-//  Copyright © 2018 Dennis Oberhoff. All rights reserved.
-//
-
+import DOLabel
 import UIKit
 
 class ViewController: UIViewController {
