@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/docterd/dolabel"
   s.license = { :type => "MIT" }
   s.author = { "Dennis Oberhoff" => "dennis@obrhoff.de" }
-  s.source = { :git => "https://github.com/docterd/dolabel.git", :branch => "feature/performance_improvements"}
+  s.source = { :git => "https://github.com/docterd/dolabel.git", :branch => "2.0"}
   s.source_files = "Sources/DOLabel/DOLabel.swift"
   s.osx.deployment_target  = '10.12'
   s.osx.framework  = 'AppKit'
