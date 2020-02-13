@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "DOLabel",
+    platforms: [
+        .iOS(.v10), .macOS(.v10_12), .tvOS(.v10),
+    ],
     products: [
         .library(
             name: "DOLabel",
