@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1140"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "79C10F8B23F58FBC0031860C"
-               BuildableName = "DOLabel.framework"
-               BlueprintName = "DOLabel-macOS"
-               ReferencedContainer = "container:DOLabel.xcodeproj">
+               BlueprintIdentifier = "7933919A23F58ED70080AD66"
+               BuildableName = "SwimplyLabel.framework"
+               BlueprintName = "SwimplyLabel-iOS"
+               ReferencedContainer = "container:SwimplyLabel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "79C10F8B23F58FBC0031860C"
-            BuildableName = "DOLabel.framework"
-            BlueprintName = "DOLabel-macOS"
-            ReferencedContainer = "container:DOLabel.xcodeproj">
+            BlueprintIdentifier = "7933919A23F58ED70080AD66"
+            BuildableName = "SwimplyLabel.framework"
+            BlueprintName = "SwimplyLabel-iOS"
+            ReferencedContainer = "container:SwimplyLabel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
