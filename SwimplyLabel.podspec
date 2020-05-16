@@ -2,11 +2,11 @@ Pod::Spec.new do |s|
   s.name = "SwimplyLabel"
   s.version = "2.1"
   s.summary = "UILabel replacement for iOS and macOS"
-  s.homepage = "https://github.com/docterd/SwimplyCache"
+  s.homepage = "https://github.com/docterd/SwimplyLabel"
   s.license = { :type => "MIT" }
   s.author = { "Dennis Oberhoff" => "dennis@obrhoff.de" }
   s.source = { :git => "https://github.com/docterd/SwimplyLabel.git", :tag => "2.1"}
-  s.source_files = "Sources/SwimplyCache/SwimplyCache.swift"
+  s.source_files = "Sources/SwimplyLabel/SwimplyLabel.swift"
   s.osx.deployment_target  = '10.12'
   s.osx.framework  = 'AppKit'
   s.ios.deployment_target = "10.0"
