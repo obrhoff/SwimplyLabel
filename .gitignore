@@ -88,3 +88,5 @@ Temporary Items
 
 .idea
 */xcuserdata/*
+.swiftpm
+Package.resolved

@@ -24,7 +24,7 @@ import SwimplyCache
     public typealias LayoutPriority = NSLayoutConstraint.Priority
 #endif
 
-@IBDesignable open class DOLabel: View {
+@IBDesignable open class SwimplyLabel: View {
     private struct CacheItem: Hashable {
         let width: CGFloat
         let text: String
@@ -183,7 +183,7 @@ import SwimplyCache
     }
 }
 
-private extension DOLabel {
+private extension SwimplyLabel {
     func commonInit() {
         #if os(iOS)
             let isRetina = UIScreen.main.scale >= 2.0
@@ -243,7 +243,7 @@ private extension DOLabel {
         let cacheItem = self.cacheItem
         let width = cacheItem.width
 
-        if let cachedSize = DOLabel.sharedCache.value(forKey: cacheItem) {
+        if let cachedSize = SwimplyLabel.sharedCache.value(forKey: cacheItem) {
             drawingRect = cachedSize
             return
         }
@@ -253,7 +253,7 @@ private extension DOLabel {
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
         var size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
                                                                 CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
-        if numberOfLines > 1 {
+        if numberOfLines >= 1 {
             let path = CGPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height), transform: nil)
             let ctFrame = CTFramesetterCreateFrame(setter, CFRangeMake(0, 0), path, nil)
             let currentLines = CFArrayGetCount(CTFrameGetLines(ctFrame)) as Int
@@ -264,7 +264,7 @@ private extension DOLabel {
         let rect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
                           height: ceil(size.height + insets.top + insets.bottom))
 
-        DOLabel.sharedCache.setValue(rect, forKey: cacheItem)
+        SwimplyLabel.sharedCache.setValue(rect, forKey: cacheItem)
         drawingRect = rect
     }
 
@@ -274,7 +274,7 @@ private extension DOLabel {
     }
 }
 
-private extension DOLabel {
+private extension SwimplyLabel {
     class DOLayer: CALayer {
         override func draw(in ctx: CGContext) {
             ctx.saveGState()
@@ -285,7 +285,7 @@ private extension DOLabel {
 }
 
 #if os(OSX)
-    extension DOLabel: CALayerDelegate {
+    extension SwimplyLabel: CALayerDelegate {
         public func draw(_: CALayer, in ctx: CGContext) {
             draw(context: ctx)
         }
@@ -314,7 +314,7 @@ private extension DOLabel {
 #endif
 
 #if os(iOS) || os(tvOS)
-    extension DOLabel {
+    extension SwimplyLabel {
         open override func draw(_: CALayer, in ctx: CGContext) {
             draw(context: ctx)
         }

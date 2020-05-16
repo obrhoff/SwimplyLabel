@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79C10F7F23F58F4C0031860C /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10F7E23F58F4C0031860C /* DOLabel.swift */; };
-		79C10F8323F58FA50031860C /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10F7E23F58F4C0031860C /* DOLabel.swift */; };
-		79C10F8E23F58FBC0031860C /* DOLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10F7E23F58F4C0031860C /* DOLabel.swift */; };
 		79C10FB523F590460031860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FB423F590460031860C /* AppDelegate.swift */; };
 		79C10FB923F590460031860C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FB823F590460031860C /* ViewController.swift */; };
 		79C10FBC23F590460031860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBA23F590460031860C /* Main.storyboard */; };
 		79C10FBE23F590470031860C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBD23F590470031860C /* Assets.xcassets */; };
 		79C10FC123F590470031860C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBF23F590470031860C /* LaunchScreen.storyboard */; };
-		79C10FC923F590B20031860C /* DOLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* DOLabel.framework */; };
-		79C10FCA23F590B20031860C /* DOLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* DOLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79C10FC923F590B20031860C /* SwimplyLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */; };
+		79C10FCA23F590B20031860C /* SwimplyLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79C10FD523F591ED0031860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FD423F591ED0031860C /* AppDelegate.swift */; };
 		79C10FD723F591ED0031860C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FD623F591ED0031860C /* ViewController.swift */; };
 		79C10FD923F591EE0031860C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FD823F591EE0031860C /* Assets.xcassets */; };
 		79C10FDC23F591EE0031860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FDA23F591EE0031860C /* Main.storyboard */; };
-		79C10FE223F5920B0031860C /* DOLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* DOLabel.framework */; };
-		79C10FE323F5920B0031860C /* DOLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* DOLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79C10FE223F5920B0031860C /* SwimplyLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */; };
+		79C10FE323F5920B0031860C /* SwimplyLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1482E3E246FABC500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E3D246FABC500FD62CA /* SwimplyCache */; };
 		E1482E44246FAC5200FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E43246FAC5200FD62CA /* SwimplyCache */; };
 		E1482E46246FAC6500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E45246FAC6500FD62CA /* SwimplyCache */; };
+		E19619C3246FB42900DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
+		E19619C4246FB42A00DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
+		E19619C5246FB42A00DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				79C10FCA23F590B20031860C /* DOLabel.framework in Embed Frameworks */,
+				79C10FCA23F590B20031860C /* SwimplyLabel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				79C10FE323F5920B0031860C /* DOLabel.framework in Embed Frameworks */,
+				79C10FE323F5920B0031860C /* SwimplyLabel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,11 +78,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7933919B23F58ED70080AD66 /* DOLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DOLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7933919B23F58ED70080AD66 /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7933919F23F58ED70080AD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
-		79C10F7E23F58F4C0031860C /* DOLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DOLabel.swift; path = Sources/DOLabel/DOLabel.swift; sourceTree = SOURCE_ROOT; };
-		79C10F8923F58FA50031860C /* DOLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DOLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		79C10F9423F58FBC0031860C /* DOLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DOLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10F8923F58FA50031860C /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10F9423F58FBC0031860C /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C10FB223F590460031860C /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C10FB423F590460031860C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C10FB823F590460031860C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		79C10FDB23F591EE0031860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79C10FDD23F591EE0031860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C10FDE23F591EE0031860C /* Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
+		E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwimplyLabel.swift; path = Sources/SwimplyLabel/SwimplyLabel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C10FC923F590B20031860C /* DOLabel.framework in Frameworks */,
+				79C10FC923F590B20031860C /* SwimplyLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C10FE223F5920B0031860C /* DOLabel.framework in Frameworks */,
+				79C10FE223F5920B0031860C /* SwimplyLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +146,7 @@
 		7933919123F58ED70080AD66 = {
 			isa = PBXGroup;
 			children = (
-				7933919D23F58ED70080AD66 /* DOLabel */,
+				7933919D23F58ED70080AD66 /* SwimplyLabel */,
 				79C10FB323F590460031860C /* Example-iOS */,
 				79C10FD323F591ED0031860C /* Example-macOS */,
 				7933919C23F58ED70080AD66 /* Products */,
@@ -157,22 +157,22 @@
 		7933919C23F58ED70080AD66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7933919B23F58ED70080AD66 /* DOLabel.framework */,
-				79C10F8923F58FA50031860C /* DOLabel.framework */,
-				79C10F9423F58FBC0031860C /* DOLabel.framework */,
+				7933919B23F58ED70080AD66 /* SwimplyLabel.framework */,
+				79C10F8923F58FA50031860C /* SwimplyLabel.framework */,
+				79C10F9423F58FBC0031860C /* SwimplyLabel.framework */,
 				79C10FB223F590460031860C /* Example-iOS.app */,
 				79C10FD223F591ED0031860C /* Example-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7933919D23F58ED70080AD66 /* DOLabel */ = {
+		7933919D23F58ED70080AD66 /* SwimplyLabel */ = {
 			isa = PBXGroup;
 			children = (
 				7933919F23F58ED70080AD66 /* Info.plist */,
-				79C10F7E23F58F4C0031860C /* DOLabel.swift */,
+				E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */,
 			);
-			path = DOLabel;
+			path = SwimplyLabel;
 			sourceTree = "<group>";
 		};
 		79C10FB323F590460031860C /* Example-iOS */ = {
@@ -235,9 +235,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7933919A23F58ED70080AD66 /* DOLabel-iOS */ = {
+		7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "DOLabel-iOS" */;
+			buildConfigurationList = 793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "SwimplyLabel-iOS" */;
 			buildPhases = (
 				7933919623F58ED70080AD66 /* Headers */,
 				7933919723F58ED70080AD66 /* Sources */,
@@ -248,17 +248,17 @@
 			);
 			dependencies = (
 			);
-			name = "DOLabel-iOS";
+			name = "SwimplyLabel-iOS";
 			packageProductDependencies = (
 				E1482E3D246FABC500FD62CA /* SwimplyCache */,
 			);
 			productName = DOLabel;
-			productReference = 7933919B23F58ED70080AD66 /* DOLabel.framework */;
+			productReference = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C10F8023F58FA50031860C /* DOLabel-tvOS */ = {
+		79C10F8023F58FA50031860C /* SwimplyLabel-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "DOLabel-tvOS" */;
+			buildConfigurationList = 79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-tvOS" */;
 			buildPhases = (
 				79C10F8123F58FA50031860C /* Headers */,
 				79C10F8223F58FA50031860C /* Sources */,
@@ -269,17 +269,17 @@
 			);
 			dependencies = (
 			);
-			name = "DOLabel-tvOS";
+			name = "SwimplyLabel-tvOS";
 			packageProductDependencies = (
 				E1482E45246FAC6500FD62CA /* SwimplyCache */,
 			);
 			productName = DOLabel;
-			productReference = 79C10F8923F58FA50031860C /* DOLabel.framework */;
+			productReference = 79C10F8923F58FA50031860C /* SwimplyLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C10F8B23F58FBC0031860C /* DOLabel-macOS */ = {
+		79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "DOLabel-macOS" */;
+			buildConfigurationList = 79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-macOS" */;
 			buildPhases = (
 				79C10F8C23F58FBC0031860C /* Headers */,
 				79C10F8D23F58FBC0031860C /* Sources */,
@@ -290,12 +290,12 @@
 			);
 			dependencies = (
 			);
-			name = "DOLabel-macOS";
+			name = "SwimplyLabel-macOS";
 			packageProductDependencies = (
 				E1482E43246FAC5200FD62CA /* SwimplyCache */,
 			);
 			productName = DOLabel;
-			productReference = 79C10F9423F58FBC0031860C /* DOLabel.framework */;
+			productReference = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		79C10FB123F590460031860C /* Example-iOS */ = {
@@ -344,7 +344,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Dennis Oberhoff";
 				TargetAttributes = {
 					7933919A23F58ED70080AD66 = {
@@ -359,7 +359,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7933919523F58ED70080AD66 /* Build configuration list for PBXProject "DOLabel" */;
+			buildConfigurationList = 7933919523F58ED70080AD66 /* Build configuration list for PBXProject "SwimplyLabel" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -375,9 +375,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7933919A23F58ED70080AD66 /* DOLabel-iOS */,
-				79C10F8023F58FA50031860C /* DOLabel-tvOS */,
-				79C10F8B23F58FBC0031860C /* DOLabel-macOS */,
+				7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */,
+				79C10F8023F58FA50031860C /* SwimplyLabel-tvOS */,
+				79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */,
 				79C10FB123F590460031860C /* Example-iOS */,
 				79C10FD123F591ED0031860C /* Example-macOS */,
 			);
@@ -432,7 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C10F7F23F58F4C0031860C /* DOLabel.swift in Sources */,
+				E19619C5246FB42A00DA79FF /* SwimplyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C10F8323F58FA50031860C /* DOLabel.swift in Sources */,
+				E19619C4246FB42A00DA79FF /* SwimplyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C10F8E23F58FBC0031860C /* DOLabel.swift in Sources */,
+				E19619C3246FB42900DA79FF /* SwimplyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,17 +475,17 @@
 /* Begin PBXTargetDependency section */
 		79C10FC723F590AC0031860C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7933919A23F58ED70080AD66 /* DOLabel-iOS */;
+			target = 7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */;
 			targetProxy = 79C10FC623F590AC0031860C /* PBXContainerItemProxy */;
 		};
 		79C10FCC23F590B20031860C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7933919A23F58ED70080AD66 /* DOLabel-iOS */;
+			target = 7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */;
 			targetProxy = 79C10FCB23F590B20031860C /* PBXContainerItemProxy */;
 		};
 		79C10FE523F5920B0031860C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 79C10F8B23F58FBC0031860C /* DOLabel-macOS */;
+			target = 79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */;
 			targetProxy = 79C10FE423F5920B0031860C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -656,8 +656,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -683,8 +683,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -709,8 +709,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -737,8 +737,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -765,8 +765,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -793,8 +793,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
-				PRODUCT_NAME = DOLabel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -804,6 +804,7 @@
 		79C10FC423F590470031860C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YE33ZK7Z99;
@@ -812,7 +813,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.dolabel.Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -822,6 +823,7 @@
 		79C10FC523F590470031860C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YE33ZK7Z99;
@@ -830,7 +832,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.dolabel.Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -840,6 +842,7 @@
 		79C10FE023F591EE0031860C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -852,7 +855,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.dolabel.Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -862,6 +865,7 @@
 		79C10FE123F591EE0031860C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -874,7 +878,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.dolabel.Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -884,7 +888,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7933919523F58ED70080AD66 /* Build configuration list for PBXProject "DOLabel" */ = {
+		7933919523F58ED70080AD66 /* Build configuration list for PBXProject "SwimplyLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				793391A123F58ED70080AD66 /* Debug */,
@@ -893,7 +897,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "DOLabel-iOS" */ = {
+		793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "SwimplyLabel-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				793391A423F58ED70080AD66 /* Debug */,
@@ -902,7 +906,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "DOLabel-tvOS" */ = {
+		79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79C10F8723F58FA50031860C /* Debug */,
@@ -911,7 +915,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "DOLabel-macOS" */ = {
+		79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79C10F9223F58FBC0031860C /* Debug */,

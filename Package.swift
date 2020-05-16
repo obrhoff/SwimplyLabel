@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "DOLabel",
+    name: "SwimplyLabel",
     platforms: [
         .iOS(.v10), .macOS(.v10_12), .tvOS(.v10),
     ],
     products: [
         .library(
-            name: "DOLabel",
-            targets: ["DOLabel"]
+            name: "SwimplyLabel",
+            targets: ["SwimplyLabel"]
         ),
     ],
     dependencies: [

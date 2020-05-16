@@ -1,8 +1,8 @@
 import Cocoa
-import DOLabel
+import SwimplyLabel
 
 class ViewController: NSViewController {
-    @IBOutlet var textLabel: DOLabel?
+    @IBOutlet var textLabel: SwimplyLabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
