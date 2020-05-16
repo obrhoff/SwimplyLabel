@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwimplyCache",
+        "repositoryURL": "https://github.com/docterd/SwimplyCache.git",
+        "state": {
+          "branch": null,
+          "revision": "48472a0bd6c7872e21b6508f1fbafadf2c822d60",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -14,4 +14,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "10.0"
   s.tvos.framework = 'UIKit'
   s.swift_version = '5.0'
+  s.source = { :git => "https://github.com/docterd/dolabel.git", :branch => "feature/SwimplyCache"}
+  s.dependency 'SwimplyCache', "= 1.0.0"
 end

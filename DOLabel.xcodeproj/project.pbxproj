@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,9 @@
 		79C10FDC23F591EE0031860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FDA23F591EE0031860C /* Main.storyboard */; };
 		79C10FE223F5920B0031860C /* DOLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* DOLabel.framework */; };
 		79C10FE323F5920B0031860C /* DOLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* DOLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1482E3E246FABC500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E3D246FABC500FD62CA /* SwimplyCache */; };
+		E1482E44246FAC5200FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E43246FAC5200FD62CA /* SwimplyCache */; };
+		E1482E46246FAC6500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E45246FAC6500FD62CA /* SwimplyCache */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1482E3E246FABC500FD62CA /* SwimplyCache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1482E46246FAC6500FD62CA /* SwimplyCache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1482E44246FAC5200FD62CA /* SwimplyCache in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +249,9 @@
 			dependencies = (
 			);
 			name = "DOLabel-iOS";
+			packageProductDependencies = (
+				E1482E3D246FABC500FD62CA /* SwimplyCache */,
+			);
 			productName = DOLabel;
 			productReference = 7933919B23F58ED70080AD66 /* DOLabel.framework */;
 			productType = "com.apple.product-type.framework";
@@ -261,6 +270,9 @@
 			dependencies = (
 			);
 			name = "DOLabel-tvOS";
+			packageProductDependencies = (
+				E1482E45246FAC6500FD62CA /* SwimplyCache */,
+			);
 			productName = DOLabel;
 			productReference = 79C10F8923F58FA50031860C /* DOLabel.framework */;
 			productType = "com.apple.product-type.framework";
@@ -279,6 +291,9 @@
 			dependencies = (
 			);
 			name = "DOLabel-macOS";
+			packageProductDependencies = (
+				E1482E43246FAC5200FD62CA /* SwimplyCache */,
+			);
 			productName = DOLabel;
 			productReference = 79C10F9423F58FBC0031860C /* DOLabel.framework */;
 			productType = "com.apple.product-type.framework";
@@ -353,6 +368,9 @@
 				Base,
 			);
 			mainGroup = 7933919123F58ED70080AD66;
+			packageReferences = (
+				E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */,
+			);
 			productRefGroup = 7933919C23F58ED70080AD66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -746,7 +764,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
 				PRODUCT_NAME = DOLabel;
 				SDKROOT = macosx;
@@ -774,7 +792,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.dolabel;
 				PRODUCT_NAME = DOLabel;
 				SDKROOT = macosx;
@@ -921,6 +939,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/docterd/SwimplyCache.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1482E3D246FABC500FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+		E1482E43246FAC5200FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+		E1482E45246FAC6500FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7933919223F58ED70080AD66 /* Project object */;
 }

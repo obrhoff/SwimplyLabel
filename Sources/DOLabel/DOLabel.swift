@@ -1,5 +1,6 @@
 import CoreText
 import Foundation
+import SwimplyCache
 
 #if os(iOS) || os(tvOS)
     import UIKit
@@ -24,6 +25,16 @@ import Foundation
 #endif
 
 @IBDesignable open class DOLabel: View {
+    private struct CacheItem: Hashable {
+        let width: CGFloat
+        let text: String
+        let alignment: NSTextAlignment
+        let lineSpacing: CGFloat
+        let kerning: CGFloat
+        let pointSize: CGFloat
+    }
+
+    private static let sharedCache = SwimplyCache<CacheItem, CGRect>()
     private var shouldAntialias = true
     private var shouldSmoothFonts = true
     private var shouldSubpixelPositionFonts = false
@@ -35,6 +46,12 @@ import Foundation
 
     private var labelLayer: DOLayer? {
         return layer as? DOLayer
+    }
+
+    private var cacheItem: CacheItem {
+        let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
+        return CacheItem(width: width, text: text ?? "", alignment: textAlignment,
+                         lineSpacing: lineSpacing, kerning: kerning, pointSize: font.pointSize)
     }
 
     private var defaultAttributedDict: [NSAttributedString.Key: Any] {
@@ -168,8 +185,6 @@ import Foundation
 
 private extension DOLabel {
     func commonInit() {
-        _ = DOLabel.Cache.shared
-
         #if os(iOS)
             let isRetina = UIScreen.main.scale >= 2.0
             shouldSubpixelPositionFonts = !isRetina
@@ -225,11 +240,10 @@ private extension DOLabel {
             return
         }
 
-        let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
-        let cacheItem = CacheItem(width: width, text: text ?? "", alignment: textAlignment,
-                                  lineSpacing: lineSpacing, kerning: kerning, pointSize: font.pointSize)
+        let cacheItem = self.cacheItem
+        let width = cacheItem.width
 
-        if let cachedSize = Cache.shared.storage[cacheItem] {
+        if let cachedSize = DOLabel.sharedCache.value(forKey: cacheItem) {
             drawingRect = cachedSize
             return
         }
@@ -250,7 +264,7 @@ private extension DOLabel {
         let rect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
                           height: ceil(size.height + insets.top + insets.bottom))
 
-        Cache.shared.storage[cacheItem] = rect
+        DOLabel.sharedCache.setValue(rect, forKey: cacheItem)
         drawingRect = rect
     }
 
@@ -266,46 +280,6 @@ private extension DOLabel {
             ctx.saveGState()
             delegate?.draw?(self, in: ctx)
             ctx.restoreGState()
-        }
-    }
-
-    struct CacheItem: Hashable {
-        let width: CGFloat
-        let text: String
-        let alignment: NSTextAlignment
-        let lineSpacing: CGFloat
-        let kerning: CGFloat
-        let pointSize: CGFloat
-    }
-
-    class Cache {
-        var storage = [CacheItem: CGRect]()
-        let pressure = DispatchSource.makeMemoryPressureSource(eventMask: .all, queue: .main)
-
-        static let shared = Cache()
-
-        private init() {
-            let cleanup = { [weak self] (_: Notification) -> Void in
-                self?.storage.removeAll()
-            }
-
-            pressure.setEventHandler { [weak self] in
-                self?.storage.removeAll()
-            }
-
-            pressure.resume()
-
-            var notifications: [NSNotification.Name] = []
-
-            #if os(OSX)
-                notifications += [NSWindow.didMiniaturizeNotification, NSApplication.didHideNotification]
-            #elseif os(iOS) || os(tvOS)
-                notifications += [UIApplication.didEnterBackgroundNotification]
-            #endif
-
-            notifications.forEach {
-                NotificationCenter.default.addObserver(forName: $0, object: nil, queue: .main, using: cleanup)
-            }
         }
     }
 }
