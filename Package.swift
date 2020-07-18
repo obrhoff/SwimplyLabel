@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/docterd/SwimplyCache.git", from: "1.0.0")
+        .package(url: "https://github.com/docterd/SwimplyCache.git", from: "1.0.0"),
     ],
     targets: [
         .target(
