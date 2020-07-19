@@ -112,7 +112,7 @@ import SwimplyCache
         }
     }
 
-    @IBInspectable open var textColor = Color.black {
+    @IBInspectable open var textColor = Color.labelColor {
         didSet {
             if oldValue == textColor { return }
             needsContentDisplay()

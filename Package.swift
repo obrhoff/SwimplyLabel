@@ -19,7 +19,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DOLabel",
+            name: "SwimplyLabel",
             dependencies: ["SwimplyCache"]
         ),
     ]
