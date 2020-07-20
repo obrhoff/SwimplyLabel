@@ -1,0 +1,977 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79C10FB523F590460031860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FB423F590460031860C /* AppDelegate.swift */; };
+		79C10FB923F590460031860C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FB823F590460031860C /* ViewController.swift */; };
+		79C10FBC23F590460031860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBA23F590460031860C /* Main.storyboard */; };
+		79C10FBE23F590470031860C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBD23F590470031860C /* Assets.xcassets */; };
+		79C10FC123F590470031860C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FBF23F590470031860C /* LaunchScreen.storyboard */; };
+		79C10FC923F590B20031860C /* SwimplyLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */; };
+		79C10FCA23F590B20031860C /* SwimplyLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79C10FD523F591ED0031860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FD423F591ED0031860C /* AppDelegate.swift */; };
+		79C10FD723F591ED0031860C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C10FD623F591ED0031860C /* ViewController.swift */; };
+		79C10FD923F591EE0031860C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FD823F591EE0031860C /* Assets.xcassets */; };
+		79C10FDC23F591EE0031860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C10FDA23F591EE0031860C /* Main.storyboard */; };
+		79C10FE223F5920B0031860C /* SwimplyLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */; };
+		79C10FE323F5920B0031860C /* SwimplyLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1482E3E246FABC500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E3D246FABC500FD62CA /* SwimplyCache */; };
+		E1482E44246FAC5200FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E43246FAC5200FD62CA /* SwimplyCache */; };
+		E1482E46246FAC6500FD62CA /* SwimplyCache in Frameworks */ = {isa = PBXBuildFile; productRef = E1482E45246FAC6500FD62CA /* SwimplyCache */; };
+		E19619C3246FB42900DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
+		E19619C4246FB42A00DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
+		E19619C5246FB42A00DA79FF /* SwimplyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79C10FC623F590AC0031860C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7933919223F58ED70080AD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7933919A23F58ED70080AD66;
+			remoteInfo = "DOLabel-iOS";
+		};
+		79C10FCB23F590B20031860C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7933919223F58ED70080AD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7933919A23F58ED70080AD66;
+			remoteInfo = "DOLabel-iOS";
+		};
+		79C10FE423F5920B0031860C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7933919223F58ED70080AD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79C10F8B23F58FBC0031860C;
+			remoteInfo = "DOLabel-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		79C10FCD23F590B20031860C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				79C10FCA23F590B20031860C /* SwimplyLabel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FE623F5920B0031860C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				79C10FE323F5920B0031860C /* SwimplyLabel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7933919B23F58ED70080AD66 /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7933919F23F58ED70080AD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
+		79C10F8923F58FA50031860C /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10F9423F58FBC0031860C /* SwimplyLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwimplyLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10FB223F590460031860C /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10FB423F590460031860C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79C10FB823F590460031860C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79C10FBB23F590460031860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79C10FBD23F590470031860C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79C10FC023F590470031860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79C10FC223F590470031860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C10FD223F591ED0031860C /* Example-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C10FD423F591ED0031860C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79C10FD623F591ED0031860C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79C10FD823F591EE0031860C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79C10FDB23F591EE0031860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79C10FDD23F591EE0031860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C10FDE23F591EE0031860C /* Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
+		E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwimplyLabel.swift; path = Sources/SwimplyLabel/SwimplyLabel.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7933919823F58ED70080AD66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1482E3E246FABC500FD62CA /* SwimplyCache in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8423F58FA50031860C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1482E46246FAC6500FD62CA /* SwimplyCache in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8F23F58FBC0031860C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1482E44246FAC5200FD62CA /* SwimplyCache in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FAF23F590460031860C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FC923F590B20031860C /* SwimplyLabel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FCF23F591ED0031860C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FE223F5920B0031860C /* SwimplyLabel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7933919123F58ED70080AD66 = {
+			isa = PBXGroup;
+			children = (
+				7933919D23F58ED70080AD66 /* SwimplyLabel */,
+				79C10FB323F590460031860C /* Example-iOS */,
+				79C10FD323F591ED0031860C /* Example-macOS */,
+				7933919C23F58ED70080AD66 /* Products */,
+				79C10FC823F590B20031860C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7933919C23F58ED70080AD66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7933919B23F58ED70080AD66 /* SwimplyLabel.framework */,
+				79C10F8923F58FA50031860C /* SwimplyLabel.framework */,
+				79C10F9423F58FBC0031860C /* SwimplyLabel.framework */,
+				79C10FB223F590460031860C /* Example-iOS.app */,
+				79C10FD223F591ED0031860C /* Example-macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7933919D23F58ED70080AD66 /* SwimplyLabel */ = {
+			isa = PBXGroup;
+			children = (
+				7933919F23F58ED70080AD66 /* Info.plist */,
+				E19619C2246FB39F00DA79FF /* SwimplyLabel.swift */,
+			);
+			path = SwimplyLabel;
+			sourceTree = "<group>";
+		};
+		79C10FB323F590460031860C /* Example-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				79C10FB423F590460031860C /* AppDelegate.swift */,
+				79C10FB823F590460031860C /* ViewController.swift */,
+				79C10FBA23F590460031860C /* Main.storyboard */,
+				79C10FBD23F590470031860C /* Assets.xcassets */,
+				79C10FBF23F590470031860C /* LaunchScreen.storyboard */,
+				79C10FC223F590470031860C /* Info.plist */,
+			);
+			path = "Example-iOS";
+			sourceTree = "<group>";
+		};
+		79C10FC823F590B20031860C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79C10FD323F591ED0031860C /* Example-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				79C10FD423F591ED0031860C /* AppDelegate.swift */,
+				79C10FD623F591ED0031860C /* ViewController.swift */,
+				79C10FD823F591EE0031860C /* Assets.xcassets */,
+				79C10FDA23F591EE0031860C /* Main.storyboard */,
+				79C10FDD23F591EE0031860C /* Info.plist */,
+				79C10FDE23F591EE0031860C /* Example_macOS.entitlements */,
+			);
+			path = "Example-macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7933919623F58ED70080AD66 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8123F58FA50031860C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8C23F58FBC0031860C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "SwimplyLabel-iOS" */;
+			buildPhases = (
+				7933919623F58ED70080AD66 /* Headers */,
+				7933919723F58ED70080AD66 /* Sources */,
+				7933919823F58ED70080AD66 /* Frameworks */,
+				7933919923F58ED70080AD66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwimplyLabel-iOS";
+			packageProductDependencies = (
+				E1482E3D246FABC500FD62CA /* SwimplyCache */,
+			);
+			productName = DOLabel;
+			productReference = 7933919B23F58ED70080AD66 /* SwimplyLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79C10F8023F58FA50031860C /* SwimplyLabel-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-tvOS" */;
+			buildPhases = (
+				79C10F8123F58FA50031860C /* Headers */,
+				79C10F8223F58FA50031860C /* Sources */,
+				79C10F8423F58FA50031860C /* Frameworks */,
+				79C10F8523F58FA50031860C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwimplyLabel-tvOS";
+			packageProductDependencies = (
+				E1482E45246FAC6500FD62CA /* SwimplyCache */,
+			);
+			productName = DOLabel;
+			productReference = 79C10F8923F58FA50031860C /* SwimplyLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-macOS" */;
+			buildPhases = (
+				79C10F8C23F58FBC0031860C /* Headers */,
+				79C10F8D23F58FBC0031860C /* Sources */,
+				79C10F8F23F58FBC0031860C /* Frameworks */,
+				79C10F9023F58FBC0031860C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwimplyLabel-macOS";
+			packageProductDependencies = (
+				E1482E43246FAC5200FD62CA /* SwimplyCache */,
+			);
+			productName = DOLabel;
+			productReference = 79C10F9423F58FBC0031860C /* SwimplyLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79C10FB123F590460031860C /* Example-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C10FC323F590470031860C /* Build configuration list for PBXNativeTarget "Example-iOS" */;
+			buildPhases = (
+				79C10FAE23F590460031860C /* Sources */,
+				79C10FAF23F590460031860C /* Frameworks */,
+				79C10FB023F590460031860C /* Resources */,
+				79C10FCD23F590B20031860C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79C10FC723F590AC0031860C /* PBXTargetDependency */,
+				79C10FCC23F590B20031860C /* PBXTargetDependency */,
+			);
+			name = "Example-iOS";
+			productName = "Example-iOS";
+			productReference = 79C10FB223F590460031860C /* Example-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79C10FD123F591ED0031860C /* Example-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79C10FDF23F591EE0031860C /* Build configuration list for PBXNativeTarget "Example-macOS" */;
+			buildPhases = (
+				79C10FCE23F591ED0031860C /* Sources */,
+				79C10FCF23F591ED0031860C /* Frameworks */,
+				79C10FD023F591ED0031860C /* Resources */,
+				79C10FE623F5920B0031860C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79C10FE523F5920B0031860C /* PBXTargetDependency */,
+			);
+			name = "Example-macOS";
+			productName = "Example-macOS";
+			productReference = 79C10FD223F591ED0031860C /* Example-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7933919223F58ED70080AD66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Dennis Oberhoff";
+				TargetAttributes = {
+					7933919A23F58ED70080AD66 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+					79C10FB123F590460031860C = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					79C10FD123F591ED0031860C = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7933919523F58ED70080AD66 /* Build configuration list for PBXProject "SwimplyLabel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7933919123F58ED70080AD66;
+			packageReferences = (
+				E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */,
+			);
+			productRefGroup = 7933919C23F58ED70080AD66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */,
+				79C10F8023F58FA50031860C /* SwimplyLabel-tvOS */,
+				79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */,
+				79C10FB123F590460031860C /* Example-iOS */,
+				79C10FD123F591ED0031860C /* Example-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7933919923F58ED70080AD66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8523F58FA50031860C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F9023F58FBC0031860C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FB023F590460031860C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FC123F590470031860C /* LaunchScreen.storyboard in Resources */,
+				79C10FBE23F590470031860C /* Assets.xcassets in Resources */,
+				79C10FBC23F590460031860C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FD023F591ED0031860C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FD923F591EE0031860C /* Assets.xcassets in Resources */,
+				79C10FDC23F591EE0031860C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7933919723F58ED70080AD66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19619C5246FB42A00DA79FF /* SwimplyLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8223F58FA50031860C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19619C4246FB42A00DA79FF /* SwimplyLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10F8D23F58FBC0031860C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19619C3246FB42900DA79FF /* SwimplyLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FAE23F590460031860C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FB923F590460031860C /* ViewController.swift in Sources */,
+				79C10FB523F590460031860C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79C10FCE23F591ED0031860C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C10FD723F591ED0031860C /* ViewController.swift in Sources */,
+				79C10FD523F591ED0031860C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79C10FC723F590AC0031860C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */;
+			targetProxy = 79C10FC623F590AC0031860C /* PBXContainerItemProxy */;
+		};
+		79C10FCC23F590B20031860C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7933919A23F58ED70080AD66 /* SwimplyLabel-iOS */;
+			targetProxy = 79C10FCB23F590B20031860C /* PBXContainerItemProxy */;
+		};
+		79C10FE523F5920B0031860C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79C10F8B23F58FBC0031860C /* SwimplyLabel-macOS */;
+			targetProxy = 79C10FE423F5920B0031860C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79C10FBA23F590460031860C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79C10FBB23F590460031860C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79C10FBF23F590470031860C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79C10FC023F590470031860C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		79C10FDA23F591EE0031860C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79C10FDB23F591EE0031860C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		793391A123F58ED70080AD66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		793391A223F58ED70080AD66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		793391A423F58ED70080AD66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		793391A523F58ED70080AD66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79C10F8723F58FA50031860C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		79C10F8823F58FA50031860C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		79C10F9223F58FBC0031860C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		79C10F9323F58FBC0031860C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.obrhoff.SwimplyLabel;
+				PRODUCT_NAME = SwimplyLabel;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		79C10FC423F590470031860C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				INFOPLIST_FILE = "Example-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79C10FC523F590470031860C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				INFOPLIST_FILE = "Example-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79C10FE023F591EE0031860C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		79C10FE123F591EE0031860C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YE33ZK7Z99;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Example-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.obrhoff.swimplylabel.Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7933919523F58ED70080AD66 /* Build configuration list for PBXProject "SwimplyLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				793391A123F58ED70080AD66 /* Debug */,
+				793391A223F58ED70080AD66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		793391A323F58ED70080AD66 /* Build configuration list for PBXNativeTarget "SwimplyLabel-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				793391A423F58ED70080AD66 /* Debug */,
+				793391A523F58ED70080AD66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79C10F8623F58FA50031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C10F8723F58FA50031860C /* Debug */,
+				79C10F8823F58FA50031860C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79C10F9123F58FBC0031860C /* Build configuration list for PBXNativeTarget "SwimplyLabel-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C10F9223F58FBC0031860C /* Debug */,
+				79C10F9323F58FBC0031860C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79C10FC323F590470031860C /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C10FC423F590470031860C /* Debug */,
+				79C10FC523F590470031860C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79C10FDF23F591EE0031860C /* Build configuration list for PBXNativeTarget "Example-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79C10FE023F591EE0031860C /* Debug */,
+				79C10FE123F591EE0031860C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/docterd/SwimplyCache.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1482E3D246FABC500FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+		E1482E43246FAC5200FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+		E1482E45246FAC6500FD62CA /* SwimplyCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1482E3C246FABC500FD62CA /* XCRemoteSwiftPackageReference "SwimplyCache" */;
+			productName = SwimplyCache;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 7933919223F58ED70080AD66 /* Project object */;
+}
