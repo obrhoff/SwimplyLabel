@@ -25,22 +25,38 @@ import SwimplyCache
 #endif
 
 @IBDesignable open class SwimplyLabel: View {
-    private struct CacheItem: Hashable {
-        let width: CGFloat
-        let text: String
+    private struct CacheKey: Hashable {
+        let text: String?
+        let boundWidth: CGFloat
         let alignment: NSTextAlignment
         let lineSpacing: CGFloat
         let kerning: CGFloat
         let pointSize: CGFloat
+        let insets: SwimplyLabel.ContentEdgeInsets
+        let preferredMaxLayoutWidth: CGFloat?
+        let numberOfLines: Int
     }
 
-    private static let sharedCache = SwimplyCache<CacheItem, CGRect>()
+    private struct CacheItem {
+        let size: CGSize
+        let drawingRect: CGRect
+    }
+
+    private struct ContentEdgeInsets: Hashable {
+        let top: CGFloat
+        let left: CGFloat
+        let right: CGFloat
+        let bottom: CGFloat
+    }
+
+    private static let sharedCache = SwimplyCache<CacheKey, CacheItem>()
     private var shouldAntialias = true
     private var shouldSmoothFonts = true
     private var shouldSubpixelPositionFonts = false
     private var shouldSubpixelQuantizeFonts = false
+    private var contentInsets: SwimplyLabel.ContentEdgeInsets = .init(top: 0, left: 0, right: 0, bottom: 0)
 
-    open override var intrinsicContentSize: Size {
+    override open var intrinsicContentSize: Size {
         return drawingRect.size
     }
 
@@ -48,10 +64,15 @@ import SwimplyCache
         return layer as? DOLayer
     }
 
-    private var cacheItem: CacheItem {
-        let width = max(0, (preferredMaxLayoutWidth ?? bounds.width) - insets.left - insets.right)
-        return CacheItem(width: width, text: text ?? "", alignment: textAlignment,
-                         lineSpacing: lineSpacing, kerning: kerning, pointSize: font.pointSize)
+    private var cacheKey: CacheKey {
+        return CacheKey(text: text,
+                        boundWidth: bounds.width,
+                        alignment: textAlignment,
+                        lineSpacing: lineSpacing, kerning: kerning,
+                        pointSize: font.pointSize,
+                        insets: contentInsets,
+                        preferredMaxLayoutWidth: preferredMaxLayoutWidth,
+                        numberOfLines: numberOfLines)
     }
 
     private var defaultAttributedDict: [NSAttributedString.Key: Any] {
@@ -91,7 +112,7 @@ import SwimplyCache
         }
     }
 
-    @IBInspectable open var textColor = Color.black {
+    @IBInspectable open var textColor = Color.labelColor {
         didSet {
             if oldValue == textColor { return }
             needsContentDisplay()
@@ -161,13 +182,15 @@ import SwimplyCache
         }
     }
 
-    @IBInspectable open var insets: EdgeInsets = EdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
-        didSet {
-            needsContentDisplay()
+    @IBInspectable open var insets: EdgeInsets {
+        set {
+            contentInsets = .init(top: newValue.top, left: newValue.left, right: newValue.right, bottom: newValue.bottom)
+        } get {
+            EdgeInsets(top: contentInsets.top, left: contentInsets.left, bottom: contentInsets.bottom, right: contentInsets.right)
         }
     }
 
-    public override init(frame: Rect) {
+    override public init(frame: Rect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -177,7 +200,7 @@ import SwimplyCache
         commonInit()
     }
 
-    open override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         commonInit()
     }
@@ -222,9 +245,8 @@ private extension SwimplyLabel {
         context.translateBy(x: 0, y: bounds.height)
         context.scaleBy(x: 1.0, y: -1.0)
 
-        let height = min(drawingRect.height, bounds.height) - insets.bottom - insets.top
-        let width = drawingRect.width - insets.left - insets.right
-
+        let height = bounds.height - insets.bottom - insets.top
+        let width = bounds.width - insets.left - insets.right
         let rect = CGRect(x: insets.left, y: insets.bottom, width: width, height: height)
         let drawingPath = CGPath(rect: rect, transform: nil)
 
@@ -240,19 +262,17 @@ private extension SwimplyLabel {
             return
         }
 
-        let cacheItem = self.cacheItem
-        let width = cacheItem.width
-
-        if let cachedSize = SwimplyLabel.sharedCache.value(forKey: cacheItem) {
-            drawingRect = cachedSize
+        if let cacheItem = SwimplyLabel.sharedCache.value(forKey: cacheKey) {
+            drawingRect = cacheItem.drawingRect
             return
         }
 
         let attributedString = NSMutableAttributedString(string: text ?? "", attributes: defaultAttributedDict)
-
         let setter = CTFramesetterCreateWithAttributedString(attributedString as CFAttributedString)
+        let constrainedWidth: CGFloat = numberOfLines == 1 ? .greatestFiniteMagnitude : (preferredMaxLayoutWidth ?? bounds.width)
         var size = CTFramesetterSuggestFrameSizeWithConstraints(setter, CFRange(location: 0, length: attributedString.length), nil,
-                                                                CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
+                                                                CGSize(width: constrainedWidth, height: .greatestFiniteMagnitude), nil)
+
         if numberOfLines >= 1 {
             let path = CGPath(rect: CGRect(x: 0, y: 0, width: size.width, height: size.height), transform: nil)
             let ctFrame = CTFramesetterCreateFrame(setter, CFRangeMake(0, 0), path, nil)
@@ -261,11 +281,11 @@ private extension SwimplyLabel {
             size.height = min(size.height, calculatedHeight)
         }
 
-        let rect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
-                          height: ceil(size.height + insets.top + insets.bottom))
+        drawingRect = CGRect(x: 0, y: 0, width: ceil(size.width + insets.left + insets.right),
+                             height: ceil(size.height + insets.top + insets.bottom))
 
-        SwimplyLabel.sharedCache.setValue(rect, forKey: cacheItem)
-        drawingRect = rect
+        let cacheItem = CacheItem(size: size, drawingRect: drawingRect)
+        SwimplyLabel.sharedCache.setValue(cacheItem, forKey: cacheKey)
     }
 
     func needsContentDisplay() {
@@ -290,11 +310,11 @@ private extension SwimplyLabel {
             draw(context: ctx)
         }
 
-        open override func makeBackingLayer() -> CALayer {
+        override open func makeBackingLayer() -> CALayer {
             return DOLayer()
         }
 
-        open override func viewDidChangeBackingProperties() {
+        override open func viewDidChangeBackingProperties() {
             super.viewDidChangeBackingProperties()
             let scale = window?.backingScaleFactor ?? 1.0
             let isRetina = scale >= 2.0
@@ -307,7 +327,7 @@ private extension SwimplyLabel {
             layer?.setNeedsDisplay()
         }
 
-        open override var isFlipped: Bool {
+        override open var isFlipped: Bool {
             return true
         }
     }
@@ -315,11 +335,11 @@ private extension SwimplyLabel {
 
 #if os(iOS) || os(tvOS)
     extension SwimplyLabel {
-        open override func draw(_: CALayer, in ctx: CGContext) {
+        override open func draw(_: CALayer, in ctx: CGContext) {
             draw(context: ctx)
         }
 
-        public override static var layerClass: AnyClass {
+        override public static var layerClass: AnyClass {
             return DOLayer.self
         }
     }

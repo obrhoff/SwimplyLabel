@@ -15,11 +15,11 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/docterd/SwimplyCache.git", from: "1.0.0")
+        .package(url: "https://github.com/docterd/SwimplyCache.git", from: "1.0.1"),
     ],
     targets: [
         .target(
-            name: "DOLabel",
+            name: "SwimplyLabel",
             dependencies: ["SwimplyCache"]
         ),
     ]
